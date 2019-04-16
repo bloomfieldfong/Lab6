@@ -13,6 +13,7 @@ int i;
 int recurso;
 
 void *thread(void *vargp){
+	print("Se agregaron las funciones deTomas");
 	printf("Thread creado correctamente\n");
 	sem_wait(&inicio);
 
@@ -91,5 +92,20 @@ int main(){
 	sem_destroy(&inicio);
 	sem_destroy(&recurso_terminado);
 	
+	return 0;
+}
+
+int decrease_count(int count){
+	if(available_resources < cunt){
+		return -1;
+	}else{
+		available_resources-= count;
+		return 0;
+	}
+}
+
+int increase_count(int count){
+
+	available_resources += count;
 	return 0;
 }
